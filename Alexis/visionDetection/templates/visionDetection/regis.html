@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/regis.css' %}">
+    <title>Simple Login</title>
+  </head>
+  <body>
+  <h1>REGISTER</h1>
+    <div class="textbox">
+      <h2>Chatbots represent a new trend in how people access information,make decisions and<br> communicate and here we present Alexis your health care application <br>that tells home remedies. </h2>
+    </div>
+  <form method='post'>
+    {% csrf_token %}
+    <div class="container">
+      <!--
+      <label for="name"><br>Name<br></label>
+      <input id="name" type="text" placeholder="Enter Name" name="name" required>
+      <label for="country"><br>Country<br></label>
+      <input id="country" type="text" placeholder="Enter Country" name="country" required>
+      <label for="phoneNumber"><br>PhoneNumber<br></label>
+      <input id="phoneNumber" type="text" placeholder="Enter Phonenumber" name="phonenumber" required>
+      <label for="uname"><br>Email<br></label>
+      <input id="uname" type="text" placeholder="Enter Email" name="email" required>
+      <label for="psw"><br>Password<br></label>
+      <input id="psw" type="password" placeholder="Enter your Password" name="remember" required>
+      -->
+      {% for field in form %}
+        {{ field.errors }}
+        {{ field.label_tag }} {{ field }}
+        {% if field.help_text %}
+        <p class="help">{{ field.help_text|safe }}</p>
+        {% endif %}
+        <br>
+      {% endfor %}
+      <button type="Submit">Register</button>
+
+    </div>
+    </form>
+  </body>
+</html>

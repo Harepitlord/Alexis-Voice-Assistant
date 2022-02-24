@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/chatMain.CSS' %}">
+  <title>My Alexis</title>
+</head>
+<body>
+<section id="header">
+    <div class="header container">
+      <div class="nav-bar">
+        <div class="brand">
+          <a href="#hero">
+            <h1><span>A</span>lex<span>is</span></h1>
+          </a>
+        </div>
+        <div class="nav-list">
+          <div class="hamburger">
+            <div class="bar"></div>
+          </div>
+          <ul>
+            <li><a href="{% url 'visionDetection:Dashboard' %}" >HOME</a></li>
+            <li><a href="{% url 'visionDetection:Profile' %}">Profile</a> </li>
+            <li><a href="{% url 'visionDetection:Chat' %}" >Chat</a></li>
+            <li><a href="{% url 'visionDetection:Capture' %}" >Capture</a></li>
+            <li><a href="{% url 'visionDetection:Logout' %}" >Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Header -->
+
+    {% if messages %}
+<div class="alert alert-success">
+    {% for m in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ m }}</li>
+    {% endfor %}
+</div>
+{% endif %}
+
+    <div class="Container">
+        <form method="POST">
+            <div class="body">
+                {% for field in form %}
+                    {{ field.errors }}
+                    {{ field.label_tag }} {{ field }}
+                    {% if field.help_text %}
+                        <p class="help">{{ field.help_text|safe }}</p>
+                    {% endif %}
+                    <br>
+                {% endfor %}
+            </div>
+            <div class="footer">
+                {% csrf_token %}
+                <button type="submit">submit</button>
+            </div>
+        </form>
+        <button type="button" onclick="window.location.href='{% url 'visionDetection:ChangePassword' %}';">Change Password </button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,110 @@
+/*-- ----------------------------------------------------chat CSS-------------------------------------------------------------- --*/
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif&display=swap');
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family:PT Serif, serif;
+	cursor: pointer;
+}
+body{
+	height: 110vh;
+	width: 100%;
+	display: flex;
+	justify-content:safe center;
+	align-items:center ;
+	background-color: #dba9de;
+}
+.Container{
+	width: 25rem;
+	height: 32rem;
+	display: flex;
+	flex-direction: column;
+	background: rgba(255,255,255,0.06);
+	box-shadow: 0 8px 32px 0 rgba(31, 38, 135, .37);
+	border-radius:10px;
+	
+}
+.header{
+	display: flex;
+	justify-content: safe start;
+	color: #6e6b6c;
+	height: 70px;
+	padding: 10px;
+}
+.header img{
+	width: 50px;
+	height: 50px;
+	border-radius: 70%;
+
+}
+.info{
+	padding: 10px;
+}
+.info h2{
+	font-size:17px;
+}
+.info p{
+	font-weight: bold;
+	font-size:9px;
+}
+.body{
+	flex:1;
+    font-size: 10px;
+	color: whitesmoke;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, .3);
+	letter-spacing: 1px;
+	margin-bottom: 1%;
+	background-color: floralwhite;
+	padding: 20px 30px;
+	overflow: auto;
+}
+.message{
+	background-color: #b0aeb0;
+	padding: 10px;
+	color: black;
+	width:60%;
+	border-radius: 10px 10px 10px 0;
+	position: relative;
+	word-wrap: break-word;
+
+}
+.user_message{
+	width: 60% ;
+	word-wrap: break-word;
+	background-color: #e07ed0;
+	color: black;
+	border-radius: 10px 10px 0 10px ;
+	margin: 5px 0 5px auto;
+
+
+}  
+
+.footer form{
+    display: flex;
+    
+}
+form input{
+	flex: 1;
+    height: 40px;
+    border: none;
+    outline: none;
+    padding: 15px;
+    font-size: 1em;
+    border-radius: 50px;
+    background-color:floralwhite ;
+}
+form button{
+    width: 80px;
+    border-radius: 50px;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color:#9c2c89 ;
+    color: white;
+    cursor: pointer;
+}
+form button:hover{
+        background-color:#b55ca2 ;
+        transition: 0.2s ease;
+}

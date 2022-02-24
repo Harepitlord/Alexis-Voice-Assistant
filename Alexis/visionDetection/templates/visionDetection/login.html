@@ -1,0 +1,36 @@
+<!-- ----------------------------------------------------login html-------------------------------------- -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style1.css' %}">
+    <title>Simple Login</title>
+  </head>
+  <body>
+  <h1>LOGIN</h1>
+    <div class="textbox">
+      <h2>Chatbots represent a new trend in how people access information,make decisions and<br> communicate and here we present Alexis your health care application <br>that tells home remedies. </h2>
+    </div>
+  <form method='post'>
+    {% csrf_token %}
+    <div class="container">
+      {% for field in form %}
+        {{ field.errors }}
+        {{ field.label_tag }} {{ field }}
+        {% if field.help_text %}
+        <p class="help">{{ field.help_text|safe }}</p>
+        {% endif %}
+        <br>
+      {% endfor %}
+      <button type="Submit">Login</button>
+    </div>
+    <div class="container">
+      <br><br><br>
+      <span class="psw" ><a href="#">Forgot Password?</a></span>
+      <br><br>
+      <span class="newuser" ><a href="{% url 'visionDetection:Signup' %}">New user</a></span>
+     </div>
+    </form>
+  </body>
+  
+</html>

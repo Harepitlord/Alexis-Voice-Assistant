@@ -1,0 +1,42 @@
+<!-- ----------------------------------------------------chat CSS-------------------------------------------------------------- -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{% load static %}
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/chatbot.css' %}">
+	<title>My Alexis</title>
+</head>
+<body>
+	<div class="Container">
+	<div class="header">
+	    <img src="{% static 'image/loggo1.jpeg' %}" alt="logo" />
+        <div class="info">
+            <h2>{{ request.user.name }}</h2>
+            <p>online</p>
+        </div>
+    </div>
+	<div class="body">
+		{% if data is not None%}
+			{% for line in data %}
+				{% if line.1 == 0 %}
+					<p class="message user_message"> {{ line.0 }}</p>
+				{% else %}
+					<p class="message ">{{ line.0 }}</p>
+				{% endif %}
+			{% endfor %}
+		{% endif %}
+</div>
+	<div class="footer">
+		<form method="POST">
+			{% csrf_token %}
+			<input type="text" name="msg" placeholder="Enter message" required>
+			<button type="submit">Send</button>
+		</form>
+	</div>
+	</div>
+
+
+</body>
+</html>
